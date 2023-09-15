@@ -130,17 +130,16 @@ export class TableStudentsComponent implements OnInit {
 
   validateInputsAdd() {
     if (
-      this.dni != '' &&
-      this.lastName != '' &&
-      this.firstName != '' &&
-      this.email != '' &&
-      this.status != '' &&
-      this.gender != '' &&
-      this.address != '' &&
-      this.phone != '' &&
-      this.cohort != 0
+      this.dni != null &&
+      this.lastName != null &&
+      this.firstName != null &&
+      this.email != null &&
+      this.status != null &&
+      this.gender != null &&
+      this.address != null &&
+      this.phone != null
     ) {
-      if (isNaN(this.cohort)) {
+      if (isNaN(this.cohort) || this.cohort == null) {
       alert('Error: El campo "cohort" es de tipo numérico')
       return false
       }
@@ -155,17 +154,16 @@ export class TableStudentsComponent implements OnInit {
 
   validateInputsMod() {
     if (
-      this.dniMod != '' &&
-      this.lastNameMod != '' &&
-      this.firstNameMod != '' &&
-      this.emailMod != '' &&
-      this.statusMod != '' &&
-      this.genderMod != '' &&
-      this.addressMod != '' &&
-      this.phoneMod != '' &&
-      this.cohortMod != 0
+      this.dniMod != null &&
+      this.lastNameMod != null &&
+      this.firstNameMod != null &&
+      this.emailMod != null &&
+      this.statusMod != null &&
+      this.genderMod != null &&
+      this.addressMod != null &&
+      this.phoneMod != null
     ) {
-      if (isNaN(this.cohortMod)) {
+      if (isNaN(this.cohortMod) || this.cohortMod == null) {
       alert('Error: El campo "cohort" es de tipo numérico')
       return false
       }
@@ -177,4 +175,9 @@ export class TableStudentsComponent implements OnInit {
       return false
     }
   }
+
+
+
+
+
 }

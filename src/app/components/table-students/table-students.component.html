@@ -19,7 +19,7 @@
         <input type="text" name="gender" [(ngModel)]="gender">
         <br>
         <label for="cohort">Cohort: </label>
-        <input type="text" name="cohort" [(ngModel)]="cohort">
+        <input type="number" name="cohort" [(ngModel)]="cohort">
         <br>
         <label for="adsress">Address: </label>
         <input type="text" name="address" [(ngModel)]="address">
@@ -31,7 +31,7 @@
         <input type="text" name="status" [(ngModel)]="status">
         <br>
 
-        <button type="submit" (click)="addStudent()">Add Student</button>
+        <button class="postButtons" type="submit" (click)="addStudent()"><b>Add Student</b></button>
     </form>
 </div>
 
@@ -71,7 +71,7 @@
         <input type="text" name="statusMod" [(ngModel)]="statusMod">
         <br>
 
-        <button type="submit" (click)="modifyStudent()">Modify Student</button>
+        <button class="postButtons" type="submit" (click)="modifyStudent()"><b>Modify Student</b></button>
     </form>
 </div>
 
@@ -85,7 +85,7 @@
             <td>Email</td>
             <td>Gender</td>
             <td>Total: <b>{{arrStudents.length}}</b></td>
-            <td style="border: 0;"><button id="addButton" (click)="openPopup('add')">Add Student</button></td>
+            <td style="border: 0;"><button id="addButton" (click)="openPopup('add')"><b>Add Student</b></button></td>
         </tr>
     </thead>
     <tbody *ngFor="let student of arrStudents">

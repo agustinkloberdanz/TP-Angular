@@ -71,3 +71,11 @@ input {
     background-color: #7ba4ac;
     border-radius: 15%;
 }
+
+.postButtons {
+    border-radius: 15%;
+    width: 50%;
+    height: 100%;
+    border: 1px solid;
+    background-color: rgb(0, 255, 0);
+}
