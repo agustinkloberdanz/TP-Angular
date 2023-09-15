@@ -1,0 +1,105 @@
+<div class="popup" *ngIf="addStudentForm">
+    <form class="popup-content">
+        <button class="closePopup" (click)="closePopup('add')">x</button>
+        <h3>Add Student</h3>
+
+        <label for="dni">DNI: </label>
+        <input type="text" name="dni" [(ngModel)]="dni">
+        <br>
+        <label for="firstName">First Name: </label>
+        <input type="text" name="firstName" [(ngModel)]="firstName">
+        <br>
+        <label for="lastName">Last Name: </label>
+        <input type="text" name="lastName" [(ngModel)]="lastName">
+        <br>
+        <label for="email">Email: </label>
+        <input type="text" name="email" [(ngModel)]="email">
+        <br>
+        <label for="gender">Gender: </label>
+        <input type="text" name="gender" [(ngModel)]="gender">
+        <br>
+        <label for="cohort">Cohort: </label>
+        <input type="text" name="cohort" [(ngModel)]="cohort">
+        <br>
+        <label for="adsress">Address: </label>
+        <input type="text" name="address" [(ngModel)]="address">
+        <br>
+        <label for="phone">Phone: </label>
+        <input type="text" name="phone" [(ngModel)]="phone">
+        <br>
+        <label for="status">Status: </label>
+        <input type="text" name="status" [(ngModel)]="status">
+        <br>
+
+        <button type="submit" (click)="addStudent()">Add Student</button>
+    </form>
+</div>
+
+<div class="popup" *ngIf="modifyStudentForm">
+    <form class="popup-content">
+        <button class="closePopup" (click)="closePopup('mod')">x</button>
+        <h3>Modify Student</h3>
+
+        <label for="idMod">ID: </label>
+        <input readonly type="text" name="idMod" [(ngModel)]="idMod">
+        <br>
+        <label for="dniMod">DNI: </label>
+        <input type="text" name="dniMod" [(ngModel)]="dniMod">
+        <br>
+        <label for="firstNameMod">First Name: </label>
+        <input type="text" name="firstNameMod" [(ngModel)]="firstNameMod">
+        <br>
+        <label for="lastNameMod">Last Name: </label>
+        <input type="text" name="lastNameMod" [(ngModel)]="lastNameMod">
+        <br>
+        <label for="emailMod">Email: </label>
+        <input type="text" name="emailMod" [(ngModel)]="emailMod">
+        <br>
+        <label for="genderMod">Gender: </label>
+        <input type="text" name="genderMod" [(ngModel)]="genderMod">
+        <br>
+        <label for="cohortMod">Cohort: </label>
+        <input type="text" name="cohortMod" [(ngModel)]="cohortMod">
+        <br>
+        <label for="adsressMod">Address: </label>
+        <input type="text" name="addressMod" [(ngModel)]="addressMod">
+        <br>
+        <label for="phoneMod">Phone: </label>
+        <input type="text" name="phoneMod" [(ngModel)]="phoneMod">
+        <br>
+        <label for="statusMod">Status: </label>
+        <input type="text" name="statusMod" [(ngModel)]="statusMod">
+        <br>
+
+        <button type="submit" (click)="modifyStudent()">Modify Student</button>
+    </form>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>DNI</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Gender</td>
+            <td>Total: <b>{{arrStudents.length}}</b></td>
+            <td style="border: 0;"><button id="addButton" (click)="openPopup('add')">Add Student</button></td>
+        </tr>
+    </thead>
+    <tbody *ngFor="let student of arrStudents">
+        <tr>
+            <td>{{student.id}}</td>
+            <td>{{student.dni}}</td>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.gender}}</td>
+            <td style="border: 0;">
+                <button id="modifyButton" class="tableButtons" (click)="vewStudent(student)">Modify</button>
+                <button id="deleteButton" class="tableButtons" (click)="deleteStudent(student.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
