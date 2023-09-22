@@ -11,6 +11,10 @@ import { window } from 'rxjs';
 })
 export class TableStudentsComponent implements OnInit {
 
+  constructor(private service: TableStudentsService) { }
+
+  arrStudents = new Array<Student>()
+
   addStudentForm = false
   modifyStudentForm = false
 
@@ -35,9 +39,6 @@ export class TableStudentsComponent implements OnInit {
   addressMod: string
   phoneMod: string
 
-  arrStudents = new Array<Student>()
-
-  constructor(private service: TableStudentsService) { }
 
   ngOnInit(): void {
     this.getStudents()
@@ -47,7 +48,11 @@ export class TableStudentsComponent implements OnInit {
     this.service.getStudents().subscribe(res => {
       this.arrStudents = res
       console.log(this.arrStudents)
-    })
+    },
+      err => {
+        alert(`Error: ${err.statusText}`)
+        console.log(err.message)
+      })
   }
 
   addStudent() {
@@ -68,7 +73,11 @@ export class TableStudentsComponent implements OnInit {
       this.service.addStudent(json).subscribe(() => {
         alert('Estudiante creado con éxito')
         location.reload()
-      })
+      },
+        err => {
+          alert(`Error: ${err.statusText}`)
+          console.log(err.message)
+        })
     }
   }
 
@@ -91,7 +100,11 @@ export class TableStudentsComponent implements OnInit {
       this.service.modifyStudent(json).subscribe(() => {
         alert('Estudiante modificado con éxito')
         location.reload()
-      })
+      },
+        err => {
+          alert(`Error: ${err.statusText}`)
+          console.log(err.message)
+        })
     }
   }
 
@@ -100,7 +113,11 @@ export class TableStudentsComponent implements OnInit {
       this.service.deleteStudent(id).subscribe(() => {
         alert('Estudiante eliminado con éxito')
         location.reload()
-      })
+      },
+        err => {
+          alert(`Error: ${err.statusText}`)
+          console.log(err.message)
+        })
     }
   }
 
@@ -140,11 +157,11 @@ export class TableStudentsComponent implements OnInit {
       this.phone != null
     ) {
       if (isNaN(this.cohort) || this.cohort == null) {
-      alert('Error: El campo "cohort" es de tipo numérico')
-      return false
+        alert('Error: El campo "cohort" es de tipo numérico')
+        return false
       }
       else return true
-    } 
+    }
 
     else {
       alert('Error: Todos los campos son obligatorios')
@@ -164,11 +181,11 @@ export class TableStudentsComponent implements OnInit {
       this.phoneMod != null
     ) {
       if (isNaN(this.cohortMod) || this.cohortMod == null) {
-      alert('Error: El campo "cohort" es de tipo numérico')
-      return false
+        alert('Error: El campo "cohort" es de tipo numérico')
+        return false
       }
       else return true
-    } 
+    }
 
     else {
       alert('Error: Todos los campos son obligatorios')

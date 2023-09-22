@@ -88,8 +88,8 @@
             <td style="border: 0;"><button id="addButton" (click)="openPopup('add')"><b>Add Student</b></button></td>
         </tr>
     </thead>
-    <tbody *ngFor="let student of arrStudents">
-        <tr>
+    <tbody>
+        <tr *ngFor="let student of arrStudents">
             <td>{{student.id}}</td>
             <td>{{student.dni}}</td>
             <td>{{student.firstName}}</td>

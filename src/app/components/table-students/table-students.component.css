@@ -29,6 +29,7 @@ td {
     border-radius: 20px;
     text-align: center;
     overflow-x: hidden;
+    border-style: groove;
 }
 
 input {
@@ -70,6 +71,15 @@ input {
     width: 100%;
     background-color: #7ba4ac;
     border-radius: 15%;
+    color: white;
+    transition: 1s;
+    cursor: pointer;
+}
+
+
+#addButton:hover {
+    background-color: #455c61;
+    transition: 1s;
 }
 
 .postButtons {
