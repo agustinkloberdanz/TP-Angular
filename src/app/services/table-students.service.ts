@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Student } from '../models/student';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,11 @@ export class TableStudentsService {
     return this.http.get(`${this.url}/getAll`)
   }
 
-  public addStudent(student: any) {
+  public addStudent(student: Student) {
     return this.http.post(this.url, student)
   }
 
-  public modifyStudent(student: any) {
+  public modifyStudent(student: Student) {
     return this.http.post(`${this.url}/${student.id}/update`, student)
   }
 

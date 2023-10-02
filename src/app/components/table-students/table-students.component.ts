@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TableStudentsService } from 'src/app/services/table-students.service';
 import { Student } from 'src/app/models/student';
-import { NgModel } from '@angular/forms';
-import { window } from 'rxjs';
 
 @Component({
   selector: 'app-table-students',
@@ -56,21 +54,22 @@ export class TableStudentsComponent implements OnInit {
   }
 
   addStudent() {
-    var json = {
-      dni: this.dni,
-      lastName: this.lastName,
-      firstName: this.firstName,
-      email: this.email,
-      cohort: this.cohort,
-      status: this.status,
-      gender: this.gender,
-      address: this.address,
-      phone: this.phone
-    }
-    console.log(json)
+    var student = new Student()
+
+    student.dni = this.dni,
+    student.lastName = this.lastName,
+    student.firstName = this.firstName,
+    student.email = this.email,
+    student.cohort = this.cohort,
+    student.status = this.status,
+    student.gender = this.gender,
+    student.address = this.address,
+    student.phone = this.phone
+
+    console.log(student)
 
     if (this.validateInputsAdd()) {
-      this.service.addStudent(json).subscribe(() => {
+      this.service.addStudent(student).subscribe(() => {
         alert('Estudiante creado con éxito')
         location.reload()
       },
@@ -82,22 +81,23 @@ export class TableStudentsComponent implements OnInit {
   }
 
   modifyStudent() {
-    var json = {
-      id: this.idMod,
-      dni: this.dniMod,
-      lastName: this.lastNameMod,
-      firstName: this.firstNameMod,
-      email: this.emailMod,
-      cohort: this.cohortMod,
-      status: this.statusMod,
-      gender: this.genderMod,
-      address: this.addressMod,
-      phone: this.phoneMod
-    }
-    console.log(json)
+    var student = new Student()
+
+    student.id = this.idMod
+    student.dni = this.dniMod,
+    student.lastName = this.lastNameMod,
+    student.firstName = this.firstNameMod,
+    student.email = this.emailMod,
+    student.cohort = this.cohortMod,
+    student.status = this.statusMod,
+    student.gender = this.genderMod,
+    student.address = this.addressMod,
+    student.phone = this.phoneMod
+
+    console.log(student)
 
     if (this.validateInputsMod()) {
-      this.service.modifyStudent(json).subscribe(() => {
+      this.service.modifyStudent(student).subscribe(() => {
         alert('Estudiante modificado con éxito')
         location.reload()
       },
@@ -109,7 +109,7 @@ export class TableStudentsComponent implements OnInit {
   }
 
   deleteStudent(id: number) {
-    if (confirm('¿Esta seguro que quiere eliminar al estudiante?')) {
+    if (confirm(`¿Está seguro que quiere eliminar al estudiante ${id}?`)) {
       this.service.deleteStudent(id).subscribe(() => {
         alert('Estudiante eliminado con éxito')
         location.reload()
