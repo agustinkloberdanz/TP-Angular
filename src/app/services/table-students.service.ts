@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TableStudentsService {
-  private url = 'https://91cc-181-231-122-56.ngrok-free.app/student'
+  private url = 'https://788c-201-179-13-140.ngrok-free.app/student'
 
   constructor(private http: HttpClient) { }
 

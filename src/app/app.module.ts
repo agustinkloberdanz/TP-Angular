@@ -18,7 +18,7 @@ import { TableStudentsService } from './services/table-students.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TableStudentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
