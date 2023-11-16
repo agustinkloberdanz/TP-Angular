@@ -58,5 +58,10 @@
     </svg>
   </a>
 </div>
-
-<app-table-students></app-table-students>
+<div>
+  <ul>
+    <li><a [routerLink]="['/tableStudents']">Students List</a></li>
+    <li><a [routerLink]="['/appRouting']">New routing component</a></li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>

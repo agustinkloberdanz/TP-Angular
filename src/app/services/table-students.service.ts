@@ -7,7 +7,7 @@ import { Student } from '../models/student';
   providedIn: 'root'
 })
 export class TableStudentsService {
-  private url = 'https://788c-201-179-13-140.ngrok-free.app/student'
+  private url = 'https://backend-idra-production.up.railway.app/student'
 
   constructor(private http: HttpClient) { }
 
